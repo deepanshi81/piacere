@@ -1,0 +1,411 @@
+/* =========================================
+   IMPORT FONTS
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+
+/* =========================================
+   GLOBAL VARIABLES & RESET
+   ========================================= */
+:root {
+    --primary-color: #2c2c2c; /* Deep Charcoal */
+    --accent-color: #c19b76;  /* Warm Gold/Bronze */
+    --bg-color: #fdfbf7;      /* Warm Cream */
+    --text-color: #4a4a4a;    /* Soft Black */
+    --light-gray: #eaeaea;
+    --white: #ffffff;
+    
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================
+   HEADER & NAVIGATION
+   ========================================= */
+header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-family: var(--font-heading);
+    font-size: 26px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+.hero {
+    background: linear-gradient(rgba(44, 44, 44, 0.85), rgba(44, 44, 44, 0.85)), 
+                url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    color: var(--white);
+    text-align: center;
+    padding: 140px 20px;
+}
+
+.hero h2 {
+    font-family: var(--font-heading);
+    font-size: 52px;
+    margin-bottom: 15px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.hero p {
+    font-size: 16px;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 700;
+    animation: fadeInUp 1s ease-out;
+}
+
+/* =========================================
+   CONTAINER & ABOUT SECTION
+   ========================================= */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+.about-section {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 80px auto;
+}
+
+.about-section h2 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 36px;
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+}
+
+.about-section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: var(--accent-color);
+    margin: 15px auto 0;
+}
+
+.about-section p {
+    font-size: 18px;
+    color: #666;
+    font-weight: 300;
+}
+
+/* =========================================
+   MENU SECTION
+   ========================================= */
+#menu {
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+    padding: 60px;
+    margin-bottom: 80px;
+}
+
+.menu-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.menu-grid:last-child {
+    margin-bottom: 0;
+}
+
+.menu-grid:nth-child(even) {
+    flex-direction: row-reverse; /* Alternating image layout for aesthetic */
+}
+
+.menu-image {
+    width: 45%;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.menu-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.menu-image:hover img {
+    transform: scale(1.05); /* Elegant zoom effect */
+}
+
+.menu-text {
+    width: 50%;
+}
+
+.menu-text h3 {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--light-gray);
+    padding-bottom: 10px;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 15px;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Dotted line between item and price */
+.menu-item span:first-child::after {
+    content: " ..................................................................................................................";
+    color: #ddd;
+    font-weight: normal;
+    letter-spacing: 2px;
+    margin: 0 10px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.menu-item span.price {
+    color: var(--accent-color);
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.menu-text > p {
+    margin-top: 25px;
+    font-size: 15px;
+    color: #777;
+    font-style: italic;
+    border-left: 3px solid var(--accent-color);
+    padding-left: 15px;
+}
+
+/* =========================================
+   PRESS & REVIEWS SECTION
+   ========================================= */
+.press-reviews {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.box {
+    flex: 1;
+    background: var(--white);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+    border-top: 4px solid var(--accent-color);
+}
+
+.box h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.press-quote {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    padding-left: 20px;
+    border-left: 2px solid var(--accent-color);
+}
+
+.review {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.review:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.review .stars {
+    color: #e5b869; /* Gold stars */
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.review strong {
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 5px 0;
+    color: var(--primary-color);
+}
+
+.review p {
+    font-size: 15px;
+    color: #666;
+    font-style: italic;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+footer {
+    background-color: var(--primary-color);
+    color: #ccc;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    flex-wrap: wrap;
+    margin-top: 80px;
+}
+
+.footer-col h4 {
+    font-family: var(--font-heading);
+    color: var(--accent-color);
+    font-size: 20px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.footer-col p {
+    margin: 8px 0;
+    font-size: 15px;
+}
+
+/* =========================================
+   ANIMATIONS & RESPONSIVE DESIGN
+   ========================================= */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Tablet and Mobile View */
+@media (max-width: 900px) {
+    header {
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    nav {
+        margin-top: 15px;
+    }
+
+    nav a {
+        margin: 0 10px;
+    }
+
+    #menu {
+        padding: 30px;
+    }
+
+    .menu-grid, .menu-grid:nth-child(even) {
+        flex-direction: column;
+    }
+
+    .menu-image, .menu-text {
+        width: 100%;
+    }
+
+    .menu-image {
+        margin-bottom: 30px;
+    }
+
+    .press-reviews {
+        flex-direction: column;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .hero h2 {
+        font-size: 36px;
+    }
+}
